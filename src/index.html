@@ -69,14 +69,15 @@
                     Your browser does not support the video tag.
                 </video>
                 <!-- The Large Text (Acts as mask/base for video) -->
-                <h1 class="background-text" data-text="NIKE FREE">NIKE FREE</h1>
+                <h1 class="background-text" data-text="کفش   نایک">کفش    نایک </h1>
             </div>
+
     
             <!-- Foreground Content -->
             <div class="hero-foreground">
                 <nav class="side-nav">
                     <ul>
-                        <li class="active" data-text="NIKE FREE" data-color="#c8ff00"><a href="#">NIKE FREE</a></li>
+                        <li class="active" data-text="کفش   نایک" data-color="#c8ff00"><a href="#">NIKE FREE</a></li>
                         <li data-text="JORDAN" data-color="#ff6b00"><a href="#">JORDAN</a></li>
                         <li data-text="RUNNING" data-color="#00c3ff"><a href="#">RUNNING</a></li>
                         <li data-text="NIKE ZOOM" data-color="#e100ff"><a href="#">NIKE ZOOM</a></li>
@@ -84,6 +85,7 @@
                 </nav>
     
                 <div class="center-content">
+                    <h1 class="product-title">ویرا! کفشی که همیشه دنبالش بودی</h1>
                     <div class="product-image-container">
                         <img src="assets/images/ui/jordan.png" alt="Nike Free Running Shoe" class="product-shoe" id="product-shoe">
                     </div>
@@ -92,17 +94,68 @@
     
                 <div class="right-info">
                     <div class="product-details">
-                        <p>SIZE <span class="size-value">UK 8</span></p>
-                        <p>PRICE <span class="price-value">$299</span></p>
+                        <p>سایز  <span class="size-value">36 - 40</span></p>
+                        <p>قیمت <span class="price-value">1,200,000</span></p>
                     </div>
                 </div>
             </div>
     
              <!-- Top Right Utility Icons -->
              <div class="utility-icons">
-                 <a href="#" aria-label="Shopping Cart"><img src="assets/icons/cart-icon.svg" alt="Cart"></a>
-                 <a href="#" aria-label="Contact"><img src="assets/icons/mail-icon.svg" alt="Mail"></a>
+                 <a href="#" aria-label="Shopping Cart" class="icon-header cart-icon"><img src="assets/icons/cart.svg" alt="Cart"></a>
+                 <a href="#" aria-label="Contact" class="icon-header"><img src="assets/icons/mail.svg" alt="Mail"></a>
              </div>
+
+             <div class="zigzag-section">
+                <svg id="zigzag-svg"
+                viewBox="0 0 1000 400"
+                preserveAspectRatio="xMidYMid meet
+                width="100%"
+                height="auto"
+                style="display: block;"
+                >
+
+                <path id="zigzag-path"
+          d="M 0 100                      
+             H 150                        
+             
+             L 162.5 95 L 175 100           
+             L 187.5 95 L 200 100           
+             L 212.5 95 L 225 100           
+             L 237.5 95 L 250 100           
+             L 262.5 95 L 275 100           
+             L 287.5 95 L 300 100           
+             L 312.5 95 L 325 100           
+             L 337.5 95 L 350 100           
+             L 362.5 95 L 375 100           
+             L 387.5 95 L 400 100           
+
+             L 412.5 95 L 425 100
+             L 437.5 95 L 450 100
+             L 462.5 95 L 475 100
+             L 487.5 95 L 500 100
+             L 512.5 95 L 525 100
+             L 537.5 95 L 550 100
+             L 562.5 95 L 575 100
+             L 587.5 95 L 600 100
+
+             L 612.5 95 L 625 100          
+             L 637.5 95 L 650 100          
+             L 662.5 95 L 675 100          
+             L 687.5 95 L 700 100          
+             L 712.5 95 L 725 100          
+             L 737.5 95 L 750 100          
+             L 762.5 95 L 775 100          
+             L 787.5 95 L 800 100          
+             L 812.5 95 L 825 100          
+             L 837.5 95 L 850 100          
+  
+             H 1000                        
+            " />
+                    <rect id="moving-shape" x="-10" y="-10" width="10" height="10"/> <!-- رنگش رو سفید کردم که دیده بشه -->
+
+                </svg>
+            </div>
     
         </section>
 
@@ -129,8 +182,12 @@
         </div>
     </footer> -->
 
+    <!-- GSAP Core Library -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.5/gsap.min.js"></script>
-    <script src="js/main.js" defer></script> <!-- 'defer' ensures HTML is parsed first -->
-    <script src="js/components/hero-gsap.js" defer></script>
+    <!-- GSAP MotionPathPlugin -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.5/MotionPathPlugin.min.js"></script>
+    <script src="js/main.js" defer></script> 
+    <script src="js/components/hero-gsap.js"></script>
+    <script src="js/components/zigzag-gsap.js"></script>
 </body>
 </html>
