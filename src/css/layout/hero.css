@@ -52,19 +52,45 @@ body {
     background-color: var(--color-black);
     color: var(--color-green);
     font-weight: 900;
-    font-size: clamp(5rem, 12vw, 12rem);
+    font-size: clamp(5rem, 10vw, 15rem);
     text-align: center;
-    font-family: sans-serif;
     mix-blend-mode: multiply;
     user-select: none;
     transition: color 0.3s ease;
+    margin-top: -150px;
   }
 
+
+  /* --- zigzag--- */
+    .zigzag-section svg{
+        margin-top: 375px; 
+        margin-bottom: 50px;
+        transition: transform 0.3s ease-out;
+    }
+    #zigzag-svg {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        z-index: 2;
+    }
+
+#zigzag-path {
+    fill: none;     
+    stroke: #ffffff;  
+    stroke-width: 0.6;  
+    stroke-opacity: 0.3;
+}
+
+#moving-shape {
+    fill: var(--color-secondary-text);
+}
 
 /* --- Foreground --- */
 .hero-foreground {
     position: relative;
-    z-index: 3; /* Above background text/video */
+    z-index: 3; 
     width: 100%;
     height: 100%;
     padding: 40px 60px;
@@ -78,6 +104,7 @@ body {
 .side-nav {
     justify-self: start;
     align-self: center;
+    margin-top: -150px;
 }
 
 .side-nav ul {
@@ -103,11 +130,12 @@ body {
 
 .side-nav li.active a {
     color: var(--color-white); 
+    position: relative;
 }
 
 .side-nav li.active a::before {
     background-color: var(--hero-accent-color);
-    width: 15px;
+    width: 100px;
 }
 
 .side-nav li:not(.active) a:hover {
@@ -115,16 +143,16 @@ body {
 }
 .side-nav li:not(.active) a:hover::before {
     background-color: var(--color-secondary-text); 
-    width: 10px;
+    width: 100px;
 }
 
 .side-nav li a::before {
     content: '';
     position: absolute;
-    left: 0;
-    top: 50%;
+    left: 15px;
+    top: 42%;
     transform: translateY(-50%);
-    width: 15px;
+    width: 100px !important;
     height: 2px;
     background-color: transparent; 
     transition: background-color 0.3s ease, width 0.3s ease;
@@ -136,7 +164,7 @@ body {
 
 .side-nav li.active a::before {
     background-color: var(--color-dynamic); /* Use dynamic color */
-    width: 15px;
+    width: 100px !important;
 }
 
 .side-nav li:not(.active) a:hover {
@@ -144,7 +172,7 @@ body {
 }
 .side-nav li:not(.active) a:hover::before {
     background-color: var(--color-secondary-text);
-    width: 10px;
+    width: 100px;
 }
 
 
@@ -155,14 +183,16 @@ body {
     align-items: center;
     justify-content: center;
     text-align: center;
-    perspective: 1000px; 
+    perspective: 1000px;
+    margin-top: -150px; 
 }
 
 .product-title {
-    font-size: 1rem;
-    font-weight: 300;
-    color: var(--color-secondary-text);
-    margin-bottom: -10px; 
+    font-size: 3rem;
+    font-weight: 900;
+    color: var(--color-white);
+    margin-bottom: 100px; 
+    text-align: center;
 }
 
 .product-image-container {
@@ -171,6 +201,10 @@ body {
     margin-bottom: 20px;
     transform-style: preserve-3d;
     z-index: 5;
+}
+
+.product-image-container {
+    transform: rotate(-20deg);
 }
 
 .product-shoe {
@@ -185,7 +219,7 @@ body {
 }
 
 .cta-button {
-    background-color: transparent;
+    background-color: var(--color-black);
     border: 1px solid var(--color-secondary-text);
     color: var(--color-white);
     padding: 10px 30px;
@@ -196,6 +230,7 @@ body {
     letter-spacing: 1px;
     text-transform: uppercase;
     transition: all 0.3s ease;
+    margin-top: 40px;
 }
 
 .cta-button:hover {
@@ -208,46 +243,64 @@ body {
 .right-info {
     justify-self: end;
     align-self: center; 
+    margin-top: -150px;
 }
 
-.product-details {
+.hero-foreground .product-details {
     position: relative;
-    padding-left: 20px;
-    border-left: 2px solid var(--color-dynamic);
+    padding-right: 10px;
+    border-right: 2px solid var(--color-dynamic);
     transition: border-color 0.3s ease;
 }
 
-.product-details p {
-    font-size: 0.8rem;
-    color: var(--color-secondary-text);
+.hero-foreground .product-details p {
+    font-size: 0.9rem;
+    color:  var(--color-white);
     text-transform: uppercase;
     margin-bottom: 5px;
+    display: flex;
+    font-weight: 700;
 }
 
-.product-details span {
+.hero-foreground .product-details span {
     display: block; 
-    color: var(--color-white);
+    color: var(--color-secondary-text);
     font-weight: 700;
-    font-size: 1.1rem;
+    font-size: 1rem;
+    padding-right: 10px;
 }
 
 /* --- Utility Icons --- */
 .utility-icons {
-    position: absolute;
-    top: 40px;
-    right: 60px;
+    position: fixed;
+    top: 250px;
+    right: 0px;
     z-index: 10;
     display: flex;
     flex-direction: column;
     gap: 20px;
 }
 
-.utility-icons a img {
+.utility-icons a{
+background-color: var(--color-secondary-text);
+padding: 5px 10px;
+}
+
+.utility-icons a:hover {
+    background-color: var(--color-green);
+}
+
+.utility-icons a:last-child {
+margin-top: -10px;
+}
+
+.utility-icons a img{
     display: block;
-    width: 24px;
-    height: 24px;
-    filter: invert(1); 
+    width: 20px;
+    height: 20px;
     opacity: 0.7;
+    filter: invert(98%) sepia(5%) saturate(2%) hue-rotate(171deg) brightness(123%) contrast(100%);
+    opacity: 1;
     transition: opacity 0.3s ease;
 }
 
@@ -255,14 +308,30 @@ body {
     opacity: 1;
 }
 
-/* --- Responsive (Basic Example) --- */
+/* --- Responsive --- */
+
+@media (max-width: 1500px) {
+    .zigzag-section svg{
+      transform: translateY(-50px);
+    }
+  }
+
 @media (max-width: 900px) {
+
+    .zigzag-section svg{
+        transform: translateY(-120px);
+      }
+
     .hero-foreground {
         grid-template-columns: 1fr; 
         grid-template-rows: auto auto auto auto; 
         padding: 30px;
         text-align: center;
     }
+    .side-nav , .right-info, .center-content {
+        margin-top: 0px;
+    } 
+
     .side-nav, .right-info, .utility-icons {
         justify-self: center;
         align-self: start;
@@ -285,5 +354,13 @@ body {
     .background-text {
         font-size: clamp(4rem, 18vw, 12rem);
     }
+
+    .center-content {
+        margin-top: -100px; 
+    }
     .product-image-container { margin-top: 0; }
+    .product-title {
+        margin-bottom: 100px;
+    }
 }
+
