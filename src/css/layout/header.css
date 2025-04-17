@@ -1,20 +1,16 @@
-/* ==========================================================================
-   Base Header & Navigation Styles (Applies to All Sizes)
-   ========================================================================== */
-
-   .site-header {
+.site-header {
     background-color: var(--color-black);
-    padding: 40px 0px !important; /* Consider removing !important if possible */
+    padding: 40px 0px !important;
     min-height: 80px;
     border-bottom: 1px solid var(--color-subtext);
-    position: relative; /* Needed for absolute positioning of mobile nav */
-    z-index: 100; /* Header above content */
-    transition: padding 0.3s ease; /* Smooth transition for mobile padding change */
+    position: relative;
+    z-index: 100;
+    transition: padding 0.3s ease; 
 }
 
 .main-header {
-    display: flex !important; /* Consider removing !important if possible */
-    flex-direction: row !important; /* Consider removing !important if possible */
+    display: flex !important;
+    flex-direction: row !important;
     justify-content: space-between;
     align-items: center;
     width: 100%;
@@ -52,11 +48,11 @@
 }
 
 .main-nav ul .dropdown-nav-item > a {
-    padding: 0px 3px ; /* RTL padding */
+    padding: 0px 3px ;
 }
 
 .dropdown-nav-item > .icon-header {
-     margin-right: 5px; /* RTL */
+     margin-right: 5px;
      vertical-align: middle;
      display: inline-block;
 }
@@ -76,25 +72,24 @@
     margin: 0;
     opacity: 0;
     visibility: hidden;
-    position: absolute; /* Positioned for desktop */
+    position: absolute;
     background-color: var(--color-dark);
-    border: 1px solid var(--color-subtext);
     border-top: none;
     min-width: 200px;
     z-index: 101;
     transition: opacity 0.2s ease, visibility 0.2s ease, transform 0.2s ease;
-    transform: translateY(10px); /* Desktop animation */
+    transform: translateY(10px); 
     border-radius: 0 0 5px 5px;
     box-shadow: 0 5px 10px rgba(0,0,0,0.2);
 }
 
-.submenu li { /* Use li for stacking */
+.submenu li { 
     display: block;
     width: 100%;
 }
 
 .submenu li a {
-    display: block; /* Make link fill the LI */
+    display: block; 
     padding: 10px 20px;
     width: 100%;
     color: var(--color-white) !important;
@@ -138,34 +133,29 @@
 @media (min-width: 701px) {
     .main-nav ul .dropdown-nav-item { display: flex; align-items: center; }
 
-    /* Submenu positioning and visibility for Desktop */
+
     .submenu {
-        /* Base styles apply position:absolute, transitions etc. */
         top: 100%;
         right: 0;
         left: auto;
-        /* Desktop doesn't need display:block here, hover handles visibility */
     }
 
-    /* Show submenu on hover/focus for Desktop */
     .dropdown-nav-item:hover > .submenu,
     .dropdown-nav-item:focus-within > .submenu {
         opacity: 1;
         visibility: visible;
-        transform: translateY(0); /* Slide into view */
+        transform: translateY(0);
     }
-    .dropdown-nav-item > a:focus + .icon-header + .submenu { /* Focus on link */
+    .dropdown-nav-item > a:focus + .icon-header + .submenu {
          opacity: 1; visibility: visible; transform: translateY(0);
     }
 
-    /* Desktop Dropdown Icon */
     .dropdown-nav-item > .icon-header {
          display: inline-block; margin-right: 5px; vertical-align: middle;
          transition: transform 0.3s ease; cursor: default;
     }
     .dropdown-nav-item:hover > .icon-header { transform: rotate(180deg); }
 
-    /* Desktop Dropdown Link Padding */
     .main-nav ul .dropdown-nav-item > a { padding: 0px 3px; }
 }
 
@@ -184,12 +174,9 @@
         background-color: var(--color-dark);
         border-top: 1px solid var(--color-subtext);
         z-index: 99; padding: 0; box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-
-        /* Initial state (Hidden): Fade Only */
         opacity: 0;
         visibility: hidden;
-        /* REMOVED: transform: translateY(-15px); */
-        transition: opacity 0.3s ease-in-out, visibility 0.3s ease-in-out; /* Only transition opacity/visibility */
+        transition: opacity 0.3s ease-in-out, visibility 0.3s ease-in-out; 
         pointer-events: none;
     }
 
@@ -197,7 +184,6 @@
     .site-header.mobile-nav-active .main-nav {
         opacity: 1;
         visibility: visible;
-        /* REMOVED: transform: translateY(0); */
         pointer-events: auto;
     }
 
@@ -221,8 +207,8 @@
      /* --- Mobile Dropdown Icon --- */
      .dropdown-nav-item > .icon-header {
         display: inline-flex; align-items: center; justify-content: center;
-        padding: 15px; /* Click/Tap area */
-        cursor: pointer; /* Indicate it does something (even if only hover parent) */
+        padding: 15px; 
+        cursor: pointer;
         transition: transform 0.3s ease; margin-right: 0; align-self: stretch;
      }
       .dropdown-nav-item > .icon-header img { width: 14px; }
@@ -273,10 +259,6 @@
         transition: padding 0.5s ease-out !important;
     }
 
-    
-    
-
-    /* --- Optional: Rotate arrow on hover --- */
     .site-header.mobile-nav-active .main-nav ul > li.dropdown-nav-item:hover > .icon-header {
         transform: rotate(180deg);
     }
