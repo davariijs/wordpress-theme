@@ -1,0 +1,68 @@
+/* src/css/base/typography.css */
+
+body {
+    font-family: var(--font-family-base); /* Assumes Vazirmatn is set here */
+    font-size: var(--font-size-base);
+    font-weight: var(--font-weight-regular);
+    color: var(--color-text-base);
+    line-height: var(--line-height-base);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-align: start; /* <-- Use logical property for default alignment (aligns right in RTL) */
+  }
+  
+  h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-family-heading);
+    font-weight: var(--font-weight-bold);
+    line-height: var(--line-height-heading);
+    margin-block-start: 0; /* Logical property for margin-top */
+    margin-block-end: var(--space-md); /* Logical property for margin-bottom */
+    color: var(--color-dark);
+    text-align: start; /* Ensure headings also align correctly */
+  }
+  
+  /* ... (rest of heading font sizes) ... */
+  
+  p {
+    margin-block-end: var(--space-md); /* Logical property for margin-bottom */
+    text-align: start; /* Explicitly set if needed, though body should cover it */
+  }
+  
+  /* Links usually don't need text-align changed */
+  a {
+    color: var(--color-link);
+    text-decoration: none;
+    transition: var(--transition-base);
+  }
+  
+  a:hover,
+  a:focus {
+    color: var(--color-link-hover);
+    text-decoration: underline;
+  }
+  
+  /* ... (strong, em - no changes needed) ... */
+  
+  blockquote {
+      /* Use logical properties for border and padding */
+      border-inline-start: 4px solid var(--color-border); /* Was border-left */
+      padding-inline-start: var(--space-md); /* Was padding-left */
+      padding-inline-end: 0; /* Explicitly remove padding on the other side if needed */
+      margin-block: var(--space-lg); /* Logical margin-top/bottom */
+      margin-inline: 0; /* Logical margin-left/right */
+      color: var(--color-text-muted);
+      font-style: italic;
+      text-align: start;
+  }
+  
+  /* Add list margins/padding if needed after reset */
+  ul, ol {
+      margin-block-end: var(--space-md); /* Logical margin-bottom */
+      /* Reset might remove list style position, padding might be needed */
+      /* padding-inline-start: var(--space-lg); Adjust based on list style position needs */
+  }
+  
+  li {
+      /* margin-block-end: var(--space-sm);  */
+      text-align: start;
+  }

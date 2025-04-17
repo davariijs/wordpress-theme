@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>کفش ویرا</title>
+    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="css/layout/hero.css">
+    <link rel="icon" href="assets/icons/favicon.ico">
+</head>
+<body>
+
+
+<header class="site-header">
+    <div class="container main-header">
+        <div class="header-logo">
+            <a href="index.html">
+                <img src="assets/images/ui/logo-light.png" alt=" ویرا">
+            </a>
+        </div>
+
+        <nav class="main-nav" id="main-nav" aria-label="Main Navigation">
+            <ul>
+                <li><a href="index.html">صفحه‌ اصلی</a></li>
+                <li><a href="products.html">محصولات</a></li>
+                <li class="dropdown-nav-item"><a href="blog.html">وبلاگ</a> <span class="icon-header"><img src="assets/icons/arrow-down.svg" alt="آیکون"></span>
+                    <ul class="submenu blog-submenu">
+                        <li><a href="blog.html">همه مقالات</a></li>
+                        <li><a href="blog-category-news.html">اخبار</a></li>
+                        <li><a href="blog-category-tutorials.html">آموزش</a></li>
+                        <li><a href="blog-category-reviews.html">بررسی‌ها</a></li>
+                    </ul>
+                </li>
+                <li><a href="contact.html">تماس با ما</a></li>
+            </ul>
+        </nav>
+
+        <div class="header-actions flex-row">
+            <a href="cart.html" class="link-primary icon-header cart-icon">
+                <img src="assets/icons/cart.svg" alt="کارت خرید">
+                <span class="cart-count">0</span>
+            </a>
+            <button class="search-btn icon-header"><img src="assets/icons/search.svg" alt="جستجو"></button>
+            <a href="wishlist.html" class="link-primary icon-header">
+                <img src="assets/icons/heart.svg" alt=" علاقمندی‌ها">
+            </a>
+            <a href="account.html" class="link-primary icon-header">
+                <img src="assets/icons/user.svg" alt="حساب کاربری">
+            </a>
+            
+            <button class="menu-toggle icon-header" aria-label="Open Navigation Menu" aria-expanded="false" aria-controls="main-nav">
+                <img src="assets/icons/menu-hamburger.svg" alt="" class="icon-hamburger" aria-hidden="true">
+                <img src="assets/icons/close.svg" alt="" class="icon-close" aria-hidden="true">      
+            </button>
+        </div>
+    </div>
+</header>
+
+    
+
+    <main>
+        <section class="hero" id="hero-section">
+
+            <!-- Background Elements -->
+            <div class="hero-background">
+                <!-- Video for Text Texture -->
+                <video class="background-video" autoplay muted loop playsinline>
+                    <source src="assets/videos/shoes.mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+                <!-- The Large Text (Acts as mask/base for video) -->
+                <h1 class="background-text" data-text="NIKE FREE">NIKE FREE</h1>
+            </div>
+    
+            <!-- Foreground Content -->
+            <div class="hero-foreground">
+                <nav class="side-nav">
+                    <ul>
+                        <li class="active" data-text="NIKE FREE" data-color="#c8ff00"><a href="#">NIKE FREE</a></li>
+                        <li data-text="JORDAN" data-color="#ff6b00"><a href="#">JORDAN</a></li>
+                        <li data-text="RUNNING" data-color="#00c3ff"><a href="#">RUNNING</a></li>
+                        <li data-text="NIKE ZOOM" data-color="#e100ff"><a href="#">NIKE ZOOM</a></li>
+                    </ul>
+                </nav>
+    
+                <div class="center-content">
+                    <div class="product-image-container">
+                        <img src="assets/images/ui/jordan.png" alt="Nike Free Running Shoe" class="product-shoe" id="product-shoe">
+                    </div>
+                    <button class="cta-button">ADD TO CART</button>
+                </div>
+    
+                <div class="right-info">
+                    <div class="product-details">
+                        <p>SIZE <span class="size-value">UK 8</span></p>
+                        <p>PRICE <span class="price-value">$299</span></p>
+                    </div>
+                </div>
+            </div>
+    
+             <!-- Top Right Utility Icons -->
+             <div class="utility-icons">
+                 <a href="#" aria-label="Shopping Cart"><img src="assets/icons/cart-icon.svg" alt="Cart"></a>
+                 <a href="#" aria-label="Contact"><img src="assets/icons/mail-icon.svg" alt="Mail"></a>
+             </div>
+    
+        </section>
+
+        <!-- <section class="featured-products">
+            <div class="container">
+                <h2>Featured Products</h2>
+                <div class="product-grid">
+                    
+                    <div class="product-card">
+                       
+                        <button class="btn btn-secondary add-to-cart-btn">Add to Cart</button>
+                    </div>
+                </div>
+            </div>
+        </section> -->
+
+        <!-- More sections: Categories, About snippet, etc. -->
+
+    </main>
+
+    <!-- <footer class="site-footer">
+        <div class="container">
+            <p>© 2023 SoleMate. All Rights Reserved.</p>
+        </div>
+    </footer> -->
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.5/gsap.min.js"></script>
+    <script src="js/main.js" defer></script> <!-- 'defer' ensures HTML is parsed first -->
+    <script src="js/components/hero-gsap.js" defer></script>
+</body>
+</html>

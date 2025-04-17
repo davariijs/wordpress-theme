@@ -1,0 +1,296 @@
+/* ==========================================================================
+   Base Header & Navigation Styles (Applies to All Sizes)
+   ========================================================================== */
+
+   .site-header {
+    background-color: var(--color-black);
+    padding: 40px 0px !important; /* Consider removing !important if possible */
+    min-height: 80px;
+    border-bottom: 1px solid var(--color-subtext);
+    position: relative; /* Needed for absolute positioning of mobile nav */
+    z-index: 100; /* Header above content */
+    transition: padding 0.3s ease; /* Smooth transition for mobile padding change */
+}
+
+.main-header {
+    display: flex !important; /* Consider removing !important if possible */
+    flex-direction: row !important; /* Consider removing !important if possible */
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+}
+
+.site-header .header-logo a img {
+    width: 100px;
+    display: block;
+}
+
+.main-nav ul {
+    list-style: none;
+    padding: 0;
+    margin-bottom: 0px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.main-nav ul li {
+    position: relative;
+}
+
+.main-nav ul li a {
+    padding:  var(--space-lg) ;
+    color: var(--color-white) !important;
+    text-decoration: none;
+    display: inline-block;
+    white-space: nowrap;
+}
+
+.dropdown-nav-item {
+    display: flex;
+    align-items: center;
+}
+
+.main-nav ul .dropdown-nav-item > a {
+    padding: 0px 3px ; /* RTL padding */
+}
+
+.dropdown-nav-item > .icon-header {
+     margin-right: 5px; /* RTL */
+     vertical-align: middle;
+     display: inline-block;
+}
+
+.dropdown-nav-item > .icon-header img {
+    display: block;
+     width: 12px;
+     height: auto;
+}
+
+/* --- Base Submenu Styles (Desktop Default) --- */
+.submenu {
+    list-style: none;
+    display: flex !important;
+    flex-direction: column !important;
+    padding: 0;
+    margin: 0;
+    opacity: 0;
+    visibility: hidden;
+    position: absolute; /* Positioned for desktop */
+    background-color: var(--color-dark);
+    border: 1px solid var(--color-subtext);
+    border-top: none;
+    min-width: 200px;
+    z-index: 101;
+    transition: opacity 0.2s ease, visibility 0.2s ease, transform 0.2s ease;
+    transform: translateY(10px); /* Desktop animation */
+    border-radius: 0 0 5px 5px;
+    box-shadow: 0 5px 10px rgba(0,0,0,0.2);
+}
+
+.submenu li { /* Use li for stacking */
+    display: block;
+    width: 100%;
+}
+
+.submenu li a {
+    display: block; /* Make link fill the LI */
+    padding: 10px 20px;
+    width: 100%;
+    color: var(--color-white) !important;
+    white-space: nowrap;
+    text-decoration: none;
+    transition: background-color 0.2s ease;
+    padding: 10px 0px;
+}
+
+.submenu li a:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+}
+
+
+/* --- Header Actions --- */
+.site-header .header-actions {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.site-header .icon-header img {
+    width: var(--font-size-lg);
+    filter: invert(98%) sepia(5%) saturate(2%) hue-rotate(171deg) brightness(123%) contrast(100%);
+    display: block;
+}
+
+.site-header .cart-icon { position: relative; }
+.site-header .cart-icon .cart-count {
+    position: absolute; top: -8px; right: -8px; background-color: var(--color-green);
+    font-weight: 600; color: var(--color-black); border-radius: 50%; font-size: 10px;
+    min-width: 16px; height: 16px; display: flex; justify-content: center;
+    align-items: center; line-height: 1; padding: 0px 1px;
+}
+.site-header .menu-toggle { display: none; }
+
+
+/* ==========================================================================
+   Desktop Navigation Styles (min-width: 701px)
+   ========================================================================== */
+@media (min-width: 701px) {
+    .main-nav ul .dropdown-nav-item { display: flex; align-items: center; }
+
+    /* Submenu positioning and visibility for Desktop */
+    .submenu {
+        /* Base styles apply position:absolute, transitions etc. */
+        top: 100%;
+        right: 0;
+        left: auto;
+        /* Desktop doesn't need display:block here, hover handles visibility */
+    }
+
+    /* Show submenu on hover/focus for Desktop */
+    .dropdown-nav-item:hover > .submenu,
+    .dropdown-nav-item:focus-within > .submenu {
+        opacity: 1;
+        visibility: visible;
+        transform: translateY(0); /* Slide into view */
+    }
+    .dropdown-nav-item > a:focus + .icon-header + .submenu { /* Focus on link */
+         opacity: 1; visibility: visible; transform: translateY(0);
+    }
+
+    /* Desktop Dropdown Icon */
+    .dropdown-nav-item > .icon-header {
+         display: inline-block; margin-right: 5px; vertical-align: middle;
+         transition: transform 0.3s ease; cursor: default;
+    }
+    .dropdown-nav-item:hover > .icon-header { transform: rotate(180deg); }
+
+    /* Desktop Dropdown Link Padding */
+    .main-nav ul .dropdown-nav-item > a { padding: 0px 3px; }
+}
+
+
+/* ==========================================================================
+   Mobile Navigation Styles (max-width: 700px)
+   ========================================================================== */
+@media (max-width: 700px) {
+
+    .site-header { padding: 20px 0 !important; min-height: 60px; }
+
+    /* --- Mobile Nav Container --- */
+    .main-nav {
+        position: absolute;
+        top: 100%; left: 0; right: 0; width: 100%;
+        background-color: var(--color-dark);
+        border-top: 1px solid var(--color-subtext);
+        z-index: 99; padding: 0; box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+
+        /* Initial state (Hidden): Fade Only */
+        opacity: 0;
+        visibility: hidden;
+        /* REMOVED: transform: translateY(-15px); */
+        transition: opacity 0.3s ease-in-out, visibility 0.3s ease-in-out; /* Only transition opacity/visibility */
+        pointer-events: none;
+    }
+
+    /* Active state (Visible): Fade Only */
+    .site-header.mobile-nav-active .main-nav {
+        opacity: 1;
+        visibility: visible;
+        /* REMOVED: transform: translateY(0); */
+        pointer-events: auto;
+    }
+
+    /* --- Mobile Nav List --- */
+    .main-nav ul { flex-direction: column; width: 100%; margin: 0; }
+    .main-nav ul li { width: 100%; text-align: right; border-bottom: 1px solid var(--color-border-dark); }
+    .main-nav ul li:last-child { border-bottom: none; }
+
+    /* --- Regular Nav Items --- */
+    .main-nav ul li:not(.dropdown-nav-item) a { display: block; padding: 15px var(--space-lg); width: 100%; transition: background-color 0.2s ease; }
+
+    /* --- General Mobile Link Hover/Focus --- */
+     .main-nav ul li a:hover,
+     .main-nav ul li a:focus { background-color: rgba(255, 255, 255, 0.08); }
+
+
+    /* --- Mobile Dropdown Item Container --- */
+    .main-nav ul .dropdown-nav-item { display: flex; justify-content: space-between; align-items: center; width: 100%; padding-left: 0; position: relative; }
+    .main-nav ul .dropdown-nav-item > a { padding: 15px var(--space-lg) 15px 0px !important; flex-grow: 1; display: inline-block; }
+
+     /* --- Mobile Dropdown Icon --- */
+     .dropdown-nav-item > .icon-header {
+        display: inline-flex; align-items: center; justify-content: center;
+        padding: 15px; /* Click/Tap area */
+        cursor: pointer; /* Indicate it does something (even if only hover parent) */
+        transition: transform 0.3s ease; margin-right: 0; align-self: stretch;
+     }
+      .dropdown-nav-item > .icon-header img { width: 14px; }
+
+
+     /* --- Mobile Submenu Base Styling --- */
+     .submenu {
+        position: static;
+        display: none !important; 
+        width: 100%;
+        border: none;
+        box-shadow: none;
+        background-color: transparent; 
+        opacity: 1;
+        visibility: visible;
+        transform: none;
+        transition: none; 
+        border-radius: 0;
+        min-width: unset;
+        z-index: auto;
+        margin: 0;
+        padding: 0;
+        z-index: 102;
+        transition: padding 0.5s ease-out !important;
+    }
+
+    /* --- Mobile Submenu List Items & Links --- */
+    .submenu li {
+        display: block; width: 100%; border: none;
+        border-top: 1px solid var(--color-border-dark);
+        background-color: rgba(0, 0, 0, 0.15);
+        text-align: right;
+    }
+     .submenu li:first-child { border-top: none; }
+    .submenu li a {
+        display: block; padding: 12px 40px 12px 20px; font-size: 0.95em;
+        color: var(--color-light-gray) !important; width: 100%; white-space: normal;
+    }
+     .submenu li a:hover,
+     .submenu li a:focus { background-color: rgba(255, 255, 255, 0.15); }
+
+
+    /* --- *************************************** --- */
+    /* --- CORE FIX: Show Mobile Submenu on HOVER --- */
+    /* --- *************************************** --- */
+    .site-header.mobile-nav-active .main-nav ul > li.dropdown-nav-item:hover > ul.submenu {
+        display: block !important;
+        transition: padding 0.5s ease-out !important;
+    }
+
+    
+    
+
+    /* --- Optional: Rotate arrow on hover --- */
+    .site-header.mobile-nav-active .main-nav ul > li.dropdown-nav-item:hover > .icon-header {
+        transform: rotate(180deg);
+    }
+
+
+    /* --- Menu Toggle Button Styling --- */
+    .site-header .menu-toggle { display: block !important; position: relative; border: none; background: none; padding: 0; cursor: pointer; width: var(--font-size-h3); height: var(--font-size-h3); z-index: 100; }
+    .site-header .menu-toggle img { display: block; position: absolute; top: 50%; left: 50%; width: 80%; height: 80%; object-fit: contain; transition: opacity 0.3s ease-in-out, transform 0.3s ease-in-out; filter: invert(98%) sepia(5%) saturate(2%) hue-rotate(171deg) brightness(123%) contrast(100%); transform: translate(-50%, -50%) rotate(0deg) scale(1); backface-visibility: hidden; }
+    .site-header .menu-toggle .icon-hamburger { opacity: 1; transform: translate(-50%, -50%) rotate(0deg) scale(1); }
+    .site-header .menu-toggle .icon-close { opacity: 0; transform: translate(-50%, -50%) rotate(-90deg) scale(0.7); pointer-events: none; }
+    .site-header.mobile-nav-active .menu-toggle .icon-hamburger { opacity: 0; transform: translate(-50%, -50%) rotate(90deg) scale(0.7); pointer-events: none; }
+    .site-header.mobile-nav-active .menu-toggle .icon-close { opacity: 1; transform: translate(-50%, -50%) rotate(0deg) scale(1); pointer-events: auto; }
+
+    /* Adjust header actions gap for mobile */
+    .header-actions { gap: 10px; }
+
+} /* End of @media (max-width: 700px) */

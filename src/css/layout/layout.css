@@ -1,0 +1,34 @@
+/* src/css/layout/layout.css */
+
+.container {
+    width: 100%;
+    max-width: var(--container-max-width);
+    /* margin-left/right: auto works fine for centering in both LTR/RTL */
+    margin-left: auto;
+    margin-right: auto;
+    /* Use logical properties for padding */
+    padding-inline-start: var(--container-padding); /* Was padding-left */
+    padding-inline-end: var(--container-padding); /* Was padding-right */
+  }
+  
+  /* Utility class for consistent section padding */
+  .section-padding {
+    /* Use logical properties for block padding (top/bottom) */
+    padding-block-start: var(--space-xl); /* Was padding-top */
+    padding-block-end: var(--space-xl); /* Was padding-bottom */
+  }
+  
+  @media (min-width: 768px) {
+    .section-padding {
+      padding-block-start: var(--space-xxl);
+      padding-block-end: var(--space-xxl);
+    }
+  }
+  
+  /* Apply default padding to standard sections if desired */
+  section {
+      /* Optional: apply .section-padding styles by default */
+      /* padding-block: var(--space-xl); /* shorthand for start/end */
+  }
+  
+  /* Style other layout blocks as needed */

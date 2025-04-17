@@ -1,0 +1,94 @@
+/* src/css/layout/grid.css */
+/* Uses CSS Logical Properties for automatic RTL support */
+
+/* Basic Flexbox Grid */
+.grid {
+    display: flex;
+    flex-wrap: wrap;
+    /* Negative margin using logical properties for inline axis (handles LTR/RTL) */
+    margin-inline-start: calc(-1 * var(--space-md)); /* Replaces margin-left */
+    margin-inline-end: calc(-1 * var(--space-md));   /* Replaces margin-right */
+  }
+  
+  /* Default column behavior */
+  .grid__col {
+    flex: 1 1 0%; /* Grow, shrink, base size 0 */
+    /* Padding (gutter) using logical properties for inline axis */
+    padding-inline-start: var(--space-md); /* Replaces padding-left */
+    padding-inline-end: var(--space-md);   /* Replaces padding-right */
+    /* Margin using logical property for block axis (bottom in horizontal-tb) */
+    margin-block-end: var(--space-lg);    /* Replaces margin-bottom */
+    min-width: 0; /* Prevents content overflow issues */
+  }
+  
+  /* --- Column Width Classes --- */
+  /* These define the width/flex-basis and don't need logical properties themselves */
+  /* Flexbox will handle the order reversal automatically in RTL */
+  .grid__col--1 { flex: 0 0 auto; width: calc(100% / 12 * 1); }
+  .grid__col--2 { flex: 0 0 auto; width: calc(100% / 12 * 2); }
+  .grid__col--3 { flex: 0 0 auto; width: calc(100% / 12 * 3); } /* Quarter */
+  .grid__col--4 { flex: 0 0 auto; width: calc(100% / 12 * 4); } /* Third */
+  .grid__col--5 { flex: 0 0 auto; width: calc(100% / 12 * 5); }
+  .grid__col--6 { flex: 0 0 auto; width: calc(100% / 12 * 6); } /* Half */
+  .grid__col--7 { flex: 0 0 auto; width: calc(100% / 12 * 7); }
+  .grid__col--8 { flex: 0 0 auto; width: calc(100% / 12 * 8); } /* Two Thirds */
+  .grid__col--9 { flex: 0 0 auto; width: calc(100% / 12 * 9); } /* Three Quarters */
+  .grid__col--10 { flex: 0 0 auto; width: calc(100% / 12 * 10); }
+  .grid__col--11 { flex: 0 0 auto; width: calc(100% / 12 * 11); }
+  .grid__col--12 { flex: 0 0 auto; width: 100%; }              /* Full */
+  
+  /* --- Responsive Column Width Classes --- */
+  /* Definitions remain the same; they control size, not direction */
+  @media (min-width: 576px) {
+    .grid__col--sm--1 { flex: 0 0 auto; width: calc(100% / 12 * 1); }
+    .grid__col--sm--2 { flex: 0 0 auto; width: calc(100% / 12 * 2); }
+    /* ... add all 12 ... */
+    .grid__col--sm--6 { flex: 0 0 auto; width: calc(100% / 12 * 6); }
+    .grid__col--sm--12 { flex: 0 0 auto; width: 100%; }
+  }
+  
+  @media (min-width: 768px) {
+    .grid__col--md--1 { flex: 0 0 auto; width: calc(100% / 12 * 1); }
+    /* ... add all 12 ... */
+    .grid__col--md--4 { flex: 0 0 auto; width: calc(100% / 12 * 4); }
+    .grid__col--md--6 { flex: 0 0 auto; width: calc(100% / 12 * 6); }
+    .grid__col--md--8 { flex: 0 0 auto; width: calc(100% / 12 * 8); }
+    .grid__col--md--12 { flex: 0 0 auto; width: 100%; }
+  }
+  
+  @media (min-width: 992px) {
+     .grid__col--lg--1 { flex: 0 0 auto; width: calc(100% / 12 * 1); }
+    /* ... add all 12 ... */
+    .grid__col--lg--3 { flex: 0 0 auto; width: calc(100% / 12 * 3); }
+    .grid__col--lg--4 { flex: 0 0 auto; width: calc(100% / 12 * 4); }
+    .grid__col--lg--6 { flex: 0 0 auto; width: calc(100% / 12 * 6); }
+    .grid__col--lg--12 { flex: 0 0 auto; width: 100%; }
+  }
+  
+  /* Add .grid__col--xl--* classes if needed */
+  
+  
+  /* --- Grid Modifiers --- */
+  .grid--no-gutters {
+    /* Use logical properties */
+    margin-inline-start: 0; /* Replaces margin-left */
+    margin-inline-end: 0;   /* Replaces margin-right */
+  }
+  .grid--no-gutters > .grid__col {
+    /* Use logical properties */
+    padding-inline-start: 0; /* Replaces padding-left */
+    padding-inline-end: 0;   /* Replaces padding-right */
+  }
+  
+  /* --- Alignment & Justification Modifiers --- */
+  /* These flexbox keywords are inherently direction-aware */
+  /* No changes needed here - they work correctly in RTL */
+  .grid--align-center { align-items: center; }
+  .grid--align-start { align-items: flex-start; } /* Aligns to top edge / start edge */
+  .grid--align-end { align-items: flex-end; }     /* Aligns to bottom edge / end edge */
+  
+  .grid--justify-center { justify-content: center; }
+  .grid--justify-between { justify-content: space-between; }
+  /* justify-content: start; is the default */
+  .grid--justify-end { justify-content: flex-end; } /* Justifies towards end edge (left in RTL) */
+  /* You could add .grid--justify-start { justify-content: flex-start; } if needed */

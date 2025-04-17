@@ -1,0 +1,72 @@
+/* src/css/base/reset.css */
+
+/* Use a more-intuitive box-sizing model. */
+*, *::before, *::after {
+    box-sizing: border-box;
+  }
+  
+  /* Remove default margin and padding on common elements */
+  body, h1, h2, h3, h4, h5, h6, p, figure, blockquote, dl, dd, ul, ol {
+    margin: 0;
+    padding: 0;
+  }
+  
+  /* Remove list styles on ul, ol elements */
+  ul,
+  ol {
+    list-style: none;
+  }
+  
+  /* Set core root defaults */
+  html:focus-within {
+    scroll-behavior: smooth;
+  }
+  
+  /* Set core body defaults */
+  body {
+    min-height: 100vh;
+    text-rendering: optimizeSpeed; /* or optimizeLegibility */
+    line-height: 1.5; /* Default line height */
+  }
+  
+  /* Make images easier to work with */
+  img, picture, video, canvas, svg {
+    display: block;
+    max-width: 100%;
+  }
+  
+  /* Inherit fonts for inputs and buttons */
+  input, button, textarea, select {
+    font: inherit;
+  }
+  
+  /* Remove all animations and transitions for people that prefer not to see them */
+  @media (prefers-reduced-motion: reduce) {
+    html:focus-within {
+     scroll-behavior: auto;
+    }
+  
+    *,
+    *::before,
+    *::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+      scroll-behavior: auto !important;
+    }
+  }
+  
+  /* Basic accessible link focus */
+  a:not([class]):focus-visible {
+      outline: 2px dashed currentColor;
+      outline-offset: 2px;
+  }
+  
+  /* Reset button defaults */
+  button {
+      border: none;
+      background-color: transparent;
+      cursor: pointer;
+      padding: 0;
+      color: inherit;
+  }
