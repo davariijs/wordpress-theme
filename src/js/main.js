@@ -4,7 +4,6 @@ document.addEventListener('DOMContentLoaded', function() {
     const siteHeader = document.querySelector('.site-header');
     const mainNav = document.getElementById('main-nav');
 
-
     dropdownItems.forEach(item => {
         const link = item.querySelector(':scope > a');
         const icon = item.querySelector(':scope > .icon-header');
