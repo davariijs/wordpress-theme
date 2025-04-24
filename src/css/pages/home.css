@@ -509,6 +509,284 @@
 }
 
 
+/* --- Sports Section --- */
+.sports-grid-container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); 
+    padding: 3rem 0;
+}
+
+.sports-card {
+    position: relative;
+    width: 300px;
+    overflow: hidden;
+}
+
+.sports-card img {
+    display: block;
+    position: relative;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    transition: opacity 0.35s ease-in-out;
+    transition: all 0.8s ease;
+    z-index: 1; 
+    padding: 1rem 3rem;
+}
+
+.sports-card .select-product {
+    position: absolute;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 3;
+}
+
+@keyframes pulse-ring {
+    0% {
+      transform: scale(0.95);
+      opacity: 0.8;
+    }
+    70% {
+      transform: scale(3);
+      opacity: 0;
+    }
+    100% {
+      transform: scale(0.95);
+      opacity: 0;
+    }
+  }
+
+.plus-button {
+    border: none;
+    padding: 0;
+    background: none;
+    width: 22px;
+    height: 22px;
+    background-color: var(--color-green);
+    border-radius: 50%;
+    cursor: pointer; 
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    position: relative;
+    transition: background-color 0.3s ease;
+  }
+
+  .plus-button::after {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    border-radius: 50%;
+    border: 10px solid var(--color-green);
+    z-index: -1;
+    animation: pulse-ring 1s infinite ease-out; 
+    pointer-events: none;
+  }
+  
+  .plus-button:hover {
+    background-color: #45a049;
+  }
+  .plus-button:focus {
+    outline: 2px solid #367c39;
+    outline-offset: 2px;
+  }
+  .plus-button:focus:not(:focus-visible) {
+    outline: none;
+  }
+  .plus-button:focus-visible {
+    outline: 2px solid #367c39;
+    outline-offset: 2px;
+  }
+  
+  .icon-lines {
+    width: 49%;
+    height: 49%;
+    position: relative;
+    transition: transform 0.3s ease-in-out;
+  }
+  
+  .line {
+    position: absolute;
+    background-color: var(--color-white);
+    border-radius: 2px;
+    top: 50%;
+    left: 50%;
+  }
+  
+  .line-1 {
+    width: 100%;
+    height: 2px;
+    transform: translate(-50%, -50%);
+  }
+  
+  .line-2 {
+    width: 2px;
+    height: 100%; 
+    transform: translate(-50%, -50%);
+  }
+  
+.plus-button.active .icon-lines {
+    transform: rotate(45deg);
+  }
+
+.first-sport-card .select-product{
+    bottom: 30px;
+    left: 44%;
+}
+
+.second-sport-card .select-product {
+    bottom: 83px;
+    left: 60%;
+}
+
+.third-sport-card .select-product {
+    bottom: 30px;
+    left: 70%;
+}
+
+
+/* --- Product Detail Card Styles --- */
+.product-detail-card {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 5;
+  background-color: rgba(51, 51, 51, 0.95); 
+  color: #ccc;
+  padding: 20px;
+  box-sizing: border-box;
+  display: flex; 
+  flex-direction: column;
+  justify-content: center; 
+  align-items: center; 
+  text-align: center; 
+  overflow-y: auto;
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none; 
+  transition: opacity 0.4s ease, visibility 0.4s ease;
+  }
+
+  .close-detail-button {
+    position: absolute;
+    top: 10px; 
+    right: 15px;
+    background: none;
+    border: none;
+    font-size: 1.8rem;
+    color: #ccc;
+    cursor: pointer;
+    padding: 0 5px; 
+    line-height: 1; 
+    z-index: 11;
+    transition: color 0.2s ease;
+}
+
+.close-detail-button:hover {
+    color: var(--color-white);
+}
+
+.close-detail-button:focus {
+    outline: 1px dotted var(--color-white);
+    outline-offset: 2px;
+}
+.close-detail-button:focus:not(:focus-visible) {
+  outline: none; 
+}
+.close-detail-button:focus-visible {
+  outline: 1px dotted var(--color-white);
+  outline-offset: 2px;
+}
+  
+  .product-detail-card img {
+    display: block;
+    max-width: 60%; 
+    max-height: 40%; 
+    margin: 0 auto 10px auto;
+    background-color: var(--color-white);
+    padding: 5px;
+    box-sizing: border-box;
+    object-fit: contain;
+  }
+  
+  .product-detail-card h3 {
+      color: var(--color-green); 
+      font-size: 1.1em;
+      margin-bottom: 5px;
+      text-align: center;
+      font-weight: bold;
+  }
+  
+  .product-detail-card .price-container {
+      text-align: center;
+      margin-bottom: 15px;
+      font-size: 0.9em;
+      color: #aaa;
+  }
+  
+  .product-detail-card .original-price {
+      text-decoration: line-through;
+      margin-right: 10px;
+      color: #888;
+  }
+  
+  .product-detail-card .current-price {
+      font-weight: bold;
+      color: #ccc;
+  }
+  
+  
+  .product-detail-card .description {
+      font-size: 0.85em;
+      line-height: 1.5;
+      text-align: center;
+      margin-bottom: 20px;
+  }
+  
+  .product-detail-card .add-to-cart-btn {
+      display: block;
+      width: max-content;
+      margin: 0 auto; 
+      padding: 10px 25px;
+      background-color: var(--color-green);
+      color: var(--color-white); 
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+      font-weight: bold;
+      text-transform: uppercase;
+      font-size: 0.8em;
+      transition: background-color 0.3s ease;
+  }
+  
+  .product-detail-card .add-to-cart-btn:hover {
+      background-color: #7daf40;
+  }
+  
+  .hidden {
+      opacity: 0 !important;
+      visibility: hidden !important;
+      position: absolute !important;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      pointer-events: none; 
+  }
+  
+  .sports-card.details-visible .product-detail-card {
+      display: block; 
+      opacity: 1 !important;
+      visibility: visible !important;
+      position: static; 
+      pointer-events: auto !important;
+  }
+
 @media (max-width: 1500px) {
 
     .trend-product-grid {
@@ -576,6 +854,19 @@
 
     .discount-grid-container {
         grid-template-columns: repeat(2, 1fr);
+    }
+
+    .sports-grid-container {
+        grid-template-columns: 1fr;
+        gap: 60px; 
+        padding: 3rem 0;
+    }
+
+    .sports-card {
+        max-width: 500px;
+        display: flex;
+        justify-content: center;
+        margin: auto;
     }
 }
 
