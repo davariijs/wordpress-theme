@@ -803,9 +803,6 @@
         margin-bottom: 60px !important;
     }
 
-
-    /* Container for the section */
-
    .running-swiper {
     width: 100%;
     height: auto; 
@@ -820,6 +817,80 @@
       align-items: stretch;
   }
   
+
+    /* Footer Section */
+
+    .site-footer {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .upper-footer {
+        background-color: var(--color-dark-background);
+    }
+
+    .down-footer {
+        background-color: var(--color-dark);
+        color: var(--color-secondary-text);
+        display: flex;
+        justify-content: center;
+        text-align: center;
+        padding: 50px 0 ;
+    }
+    .down-footer p{
+        text-align: center;
+        margin-bottom: 0;
+    }
+
+    .site-footer-wrapper {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 20px;
+        padding: 50px 0 ;
+    }
+
+    .footer-text h3{
+        color: var(--color-light-text);
+        font-weight: 600;
+        font-size: 13px;
+    }
+
+    .footer-text h4 , .footer-blog-card div ,.footer-text p{
+        color: var(--color-secondary-text);
+        font-weight: 300;
+        font-size: 12.5px;
+    }
+
+    .footer-text h4:hover , .footer-blog-card div p:hover{
+        color: var(--color-light-text);
+    }
+
+    .footer-blog-card {
+        display: flex;
+        gap: 10px;
+        margin-bottom: 16px;
+    }
+
+    .footer-blog-card img {
+        width: 50px;
+        height: 50px;
+        
+    }
+
+    .footer-icons {
+        display: flex;
+        gap: 10px;
+        filter: invert(98%) sepia(5%) saturate(2%) hue-rotate(171deg) brightness(123%) contrast(100%);
+    }
+    .footer-icons img {
+        width: 20px;
+        height: 20px;
+    }
+
+    .footer-text .header-logo a img {
+        width: 80px;
+        margin-bottom: var(--space-md);
+    }
 
 @media (max-width: 1500px) {
 
@@ -908,6 +979,35 @@
         justify-content: center;
         margin: auto;
     }
+
+    .site-footer-wrapper {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 50px;
+    }
+    .footer-icons {
+        display: flex;
+        justify-content: center;
+        justify-items: center;
+        justify-self: center;
+    }
+    .footer-text .header-logo{
+        display: flex;
+        justify-content: center;
+        justify-items: center;
+        justify-self: center;
+    }
+    .footer-blog-card-section{
+        display: flex;
+        justify-content: space-between;
+    }
+    .footer-blog-card{
+        display: flex;
+
+        float: right;
+        justify-content: center;
+        justify-items: center;
+        justify-self: center;
+    }
 }
 
 
@@ -949,6 +1049,18 @@
     .discount-grid-container {
         grid-template-columns: repeat(1, 1fr);
     }
+
+    .site-footer-wrapper {
+        /* grid-template-columns: repeat(1, 1fr); */
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        text-align: center;
+    }
+
+    .footer-text h3 ,.footer-text h4, .footer-blog-card div, .footer-text p {
+        text-align: center;
+      }
   }
 
 
