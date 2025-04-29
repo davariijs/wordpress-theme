@@ -9,8 +9,10 @@
     --color-secondary-text: #808080;
     --color-highlight: #b3af54;
     --color-subtext: #767676;     
-    --color-dark: #141414;         
+    --color-dark: #141414;  
+    --color-dark-background: #1e1e1e;       
     --color-white: #ffffff;
+    --color-light-text:#b7b7b7;
     --color-black: #000000;
     --color-border-dark: #414141;
     --color-background-light: #efefef;
