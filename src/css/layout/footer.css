@@ -3,6 +3,9 @@
     .site-footer {
         display: flex;
         flex-direction: column;
+        /* position: absolute;
+        bottom: 0;
+        width: 100%; */
     }
 
     .upper-footer {
