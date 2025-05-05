@@ -31,7 +31,6 @@
 /* ======================================== */
 /* Use these sparingly for styles that ONLY apply to one page */
 @import url('pages/home.css');
-@import url('pages/product-listing.css');
 @import url('pages/product-detail.css');
 /* Add imports for other page-specific styles if needed */
 
