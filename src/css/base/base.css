@@ -16,6 +16,7 @@ body {
   display: flex; /* Helps with potential sticky footer setups */
   flex-direction: column; /* Stack header/main/footer vertically */
   overflow-x: hidden; 
+  position: relative;
 }
 
 /* Example: Basic wrapper for main content area if needed */
